@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet } from 'react-native';
-import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import FlatCards from './components/FlatCards';
 
 const App = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
+      <FlatCards />
     </View>
   );
 };
@@ -12,7 +12,9 @@ const App = (): JSX.Element => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    padding: 14,
+    gap: 10,
+    // justifyContent: 'center',
     alignItems: 'center',
   },
 });
