@@ -1,3 +1,4 @@
+
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 export default function ElevatedCards() {
@@ -5,24 +6,11 @@ export default function ElevatedCards() {
         <View style={styles.container}>
             <Text style={styles.headingText}>Elevated Cards</Text>
             <ScrollView horizontal={true} style={[styles.cardContainer]}>
-                <View style={[styles.card]}>
-                    <Text style={[styles.cardText]}>Card 1</Text>
-                </View>
-                <View style={[styles.card]}>
-                    <Text style={[styles.cardText]}>Card 2</Text>
-                </View>
-                <View style={[styles.card]}>
-                    <Text style={[styles.cardText]}>Card 3</Text>
-                </View>
-                <View style={[styles.card]}>
-                    <Text style={[styles.cardText]}>Card 4</Text>
-                </View>
-                <View style={[styles.card]}>
-                    <Text style={[styles.cardText]}>Card 5</Text>
-                </View>
-                <View style={[styles.card]}>
-                    <Text style={[styles.cardText]}>Card 6</Text>
-                </View>
+                {
+                    [...Array(8)].map((_, i) => {
+                        return <Card key={i} cardNumber={i + 1} />
+                    })
+                }
             </ScrollView>
             <Text>Scroll to view All</Text>
         </View>
@@ -62,3 +50,11 @@ const styles = StyleSheet.create({
     },
 
 })
+
+const Card = ({ cardNumber }: { cardNumber: number }) => {
+    return (
+        <View style={[styles.card, { marginLeft: cardNumber === 1 ? 0 : 5, marginRight: cardNumber === 8 ? 0 : 5 }]}>
+            <Text style={[styles.cardText]}>Card {cardNumber}</Text>
+        </View>
+    )
+}
