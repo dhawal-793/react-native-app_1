@@ -1,15 +1,17 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import FlatCards from './components/FlatCards';
 import ElevatedCards from './components/ElevatedCards';
 import FancyCards from './components/FancyCards';
 
 const App = (): JSX.Element => {
   return (
+    <ScrollView>
       <View style={styles.container}>
         <FlatCards />
         <ElevatedCards />
         <FancyCards />
       </View>
+    </ScrollView>
   );
 };
 
