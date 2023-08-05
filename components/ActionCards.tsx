@@ -7,22 +7,60 @@ const openLink = (url: string) => {
         .catch((err) => console.error('An error occurred', err));
 }
 
+
+const projects = [
+    {
+        title: 'E-Commerce Dashboard',
+        description: 'All in One Dashboard for managing Ecommerce Stores, built using NextJS, ReactJs, typescript and shadcn-ui with prisma as ORM, planetScale as Database, and clerkauth as Authentication Provider.',
+        imageUrl: 'https://dev-folio-793.vercel.app/assets/ECOMMERCE_DASHBOARD-df3e3d31.png',
+        demoLink: 'https://ecommerce-dashboard-793.vercel.app/',
+        codeLink: 'https://github.com/dhawal-793/Ecommerce_Dashboard/',
+        cardBgColor: '#020817',
+        imageBgColor: '#020817',
+        bodyColor: '#23C4ED',
+        textColor: '#020817',
+        linkColor: '#ffffff',
+    },
+    {
+        title: 'DevNews',
+        description: `Devfolio: Dhawal's Personal portfolio is his Personal Website, where you can find all his projects, skills, experience and learning, built using React Js, Tailwind CSS and Vite Js`,
+        imageUrl: 'https://dev-folio-793.vercel.app/assets/Dev_News-0eeb08cd.png',
+        demoLink: 'https://dev-news-793.vercel.app/',
+        codeLink: 'https://github.com/dhawal-793/Dev_News',
+        cardBgColor: '#F3F4F6',
+        imageBgColor: '#F3F4F6',
+        bodyColor: '#FB923C',
+        textColor: '#19212D',
+        linkColor: '#000000',
+    },
+    {
+        title: 'DevFolio',
+        description: `Devfolio: Dhawal's Personal portfolio is his Personal Website, where you can find all his projects, skills, experience and learning, built using React Js, Tailwind CSS and Vite Js`,
+        imageUrl: 'https://dev-folio-793.vercel.app/assets/DevFolio-f2d50fc1.png',
+        demoLink: 'https://dev-folio-793.vercel.app/',
+        codeLink: 'https://github.com/dhawal-793/DevFolio',
+        cardBgColor: '#1E2735',
+        imageBgColor: '#000000',
+        bodyColor: '#009AC3',
+        textColor: '#19212D',
+        linkColor: '#ffffff',
+    },
+]
+
+
 export default function ActionCards() {
     return (
         <View style={styles.container}>
             <Text style={styles.headingText}>Action Cards</Text>
             <View style={styles.cardContainer}>
-                <Card
-                    title='E-Commerce Dashboard'
-                    description='All in One Dashboard for managing Ecommerce Stores, built using NextJS, ReactJs, typescript and shadcn-ui with prisma as ORM, planetScale as Database, and clerkauth as Authentication Provider.'
-                    imageUrl='https://dev-folio-793.vercel.app/assets/ECOMMERCE_DASHBOARD-df3e3d31.png'
-                    demoLink='https://ecommerce-dashboard-793.vercel.app/'
-                    codeLink='https://github.com/dhawal-793/Ecommerce_Dashboard/'
-                    cardBgColor='#020817'
-                    bodyColor='#23C4ED'
-                    textColor='#020817'
-                    linkColor='#CAD5E2'
-                />
+                {
+                    projects.map((project) => (
+                        <Card
+                            key={project.title}
+                            {...project}
+                        />
+                    ))
+                }
             </View>
         </View>
     )
@@ -55,15 +93,17 @@ interface CardProps {
     demoLink: string;
     codeLink: string;
     cardBgColor: string;
+    imageBgColor: string;
     bodyColor: string;
     textColor: string;
     linkColor: string;
+    // cardborderColor?: string;
 }
 
-const Card: FC<CardProps> = ({ imageUrl, title, demoLink, codeLink, description, cardBgColor, bodyColor, linkColor, textColor }) => {
+const Card: FC<CardProps> = ({ imageUrl, title, demoLink, codeLink, description, cardBgColor, imageBgColor, bodyColor, linkColor, textColor }) => {
     return (
-        <View style={[cardStyles.card, { backgroundColor: cardBgColor }]}>
-            <View style={[cardStyles.imageContainer, { backgroundColor: cardBgColor }]}>
+        <View style={[cardStyles.card, { backgroundColor: cardBgColor, borderColor: bodyColor }]}>
+            <View style={[cardStyles.imageContainer, { backgroundColor: imageBgColor }]}>
                 <Image style={cardStyles.image} source={{
                     uri: imageUrl
                 }} />
@@ -86,17 +126,18 @@ const Card: FC<CardProps> = ({ imageUrl, title, demoLink, codeLink, description,
 
 const cardStyles = StyleSheet.create({
     card: {
-        backgroundColor: '#020817',
+        borderWidth: 2,
         borderRadius: 10,
+        borderBottomLeftRadius:16,
+        borderBottomRightRadius:16,
     },
     imageContainer: {
-        paddingVertical: 5,
         paddingTop: 10,
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
     },
     image: {
-        height: 190,
+        height: 200,
     },
     body: {
         margin: 10,
