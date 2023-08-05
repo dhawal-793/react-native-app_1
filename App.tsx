@@ -2,6 +2,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import FlatCards from './components/FlatCards';
 import ElevatedCards from './components/ElevatedCards';
 import FancyCards from './components/FancyCards';
+import ActionCards from './components/ActionCards';
 
 const App = (): JSX.Element => {
   return (
@@ -10,6 +11,7 @@ const App = (): JSX.Element => {
         <FlatCards />
         <ElevatedCards />
         <FancyCards />
+        <ActionCards />
       </View>
     </ScrollView>
   );
