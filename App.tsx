@@ -3,6 +3,7 @@ import FlatCards from './components/FlatCards';
 import ElevatedCards from './components/ElevatedCards';
 import FancyCards from './components/FancyCards';
 import ActionCards from './components/ActionCards';
+import ContactCards from './components/ContactCards';
 
 const App = (): JSX.Element => {
   return (
@@ -12,6 +13,7 @@ const App = (): JSX.Element => {
         <ElevatedCards />
         <FancyCards />
         <ActionCards />
+        <ContactCards />
       </View>
     </ScrollView>
   );
